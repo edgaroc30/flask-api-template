@@ -22,9 +22,12 @@ sudo mkdir /srv/aglio
 sudo ln -s /vagrant/aglio /srv/aglio
 
 # Setting up api-rebuild & doc-rebuild bash profile
-# sudo rm $HOME/.bash_profile
-# sudo cp $HOME/vagrant $HOME/.bash_profile
-# sudo rm $HOME/vagrant
+sudo rm $HOME/.bash_profile
+sudo cp $HOME/vagrant $HOME/.bash_profile
+sudo rm $HOME/vagrant
+sed -i 's/\r//' $HOME/.bash_profile
+source $HOME/.bash_profile
+apidocs-rebuild
 
 # Print the VM IP address
 ip addr show eth1 | egrep "inet\ " | cut -f1 -d "/" | cut -f2 -d "t"

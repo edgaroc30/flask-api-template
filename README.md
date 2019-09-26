@@ -19,5 +19,5 @@ pip install -r app/requirements.txt
 
 The aglio documentation works using node and the set up of the whole vagrant machine might take a while since it requires node. To regenerate the documentation:
 ```
-vagrant ssh -c doc-rebuild
+vagrant ssh -c apidocs-rebuild
 ```
