@@ -37,8 +37,8 @@ Vagrant.configure("2") do |config|
       --volume /srv/mariadb/mysql:/var/lib/mysql \
       --memory='1GB'"
   end
-
-
+# TODO Move aglio to Dockerfile and change the bash profile file to adapt to the new Dockerfile
+# TODO Improve folder sharing, currently the folder inside the vm are shared but under /srv/app/app while it should be /srv/app only
   config.vm.provision "file", source: "./provision/.bash_profile", destination: "$HOME"
   config.vm.provision :shell, path: "./provision/bootstrap.sh"
 

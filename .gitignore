@@ -33,3 +33,4 @@ Thumbs.db
 # Other stuff #
 .vagrant
 .vs
+.vscode
