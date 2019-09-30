@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3306, host: 3306
   config.vm.network "public_network", type: "dhcp"
 
+  # TODO move docker to a docker-compose file
   # Mariadb for general development
   config.vm.provision "docker" do |d|
     d.build_image "/vagrant/app",
