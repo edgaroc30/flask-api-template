@@ -27,7 +27,9 @@ sudo cp $HOME/vagrant $HOME/.bash_profile
 sudo rm $HOME/vagrant
 sed -i 's/\r//' $HOME/.bash_profile
 source $HOME/.bash_profile
+
+# Rebuild api docs
 apidocs-rebuild
 
-# Print the VM IP address
-ip addr show eth1 | egrep "inet\ " | cut -f1 -d "/" | cut -f2 -d "t"
+# Print IP Address of the machine
+get-ip
