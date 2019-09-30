@@ -20,3 +20,7 @@ function apidocs-rebuild () {
 	aglio -i input.apib -o output.html
 	echo "DOCS Rebuild FINISHED"
 	}
+
+function get-ip () {
+	ip addr show eth1 | egrep "inet\ " | cut -f1 -d "/" | cut -f2 -d "t"
+	}
