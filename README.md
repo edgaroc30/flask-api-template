@@ -21,3 +21,8 @@ The aglio documentation works using node and the set up of the whole vagrant mac
 ```
 vagrant ssh -c apidocs-rebuild
 ```
+
+To easily get the IP address that the machine was assigned the following command will work
+```
+vagrant ssh -c get-ip
+```
