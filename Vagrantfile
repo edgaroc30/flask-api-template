@@ -27,6 +27,7 @@ Vagrant.configure("2") do |config|
       args: "--detach \
       --name flask-api \
       --publish 80:5000"
+
     d.run "mariadb/server:10.3",
       # cmd: "bash -l",
       args: "--detach  \
