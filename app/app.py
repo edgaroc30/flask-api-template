@@ -8,15 +8,14 @@ logging.basicConfig(#format='%(levelname)s: %(asctime)s %(funcName)s(%(lineno)d)
 from flask import Flask
 from flask_restful import Api
 
-from model import main,environment_manager
+from model import main,environments
 
-environment_manager.environment
 app = Flask(__name__)
 api = Api(app)
 
 api.add_resource(main.healthz, '/healthz')
 api.add_resource(main.main, '/')
-api.add_resource(environment_manager.environment,'/environment')
+api.add_resource(environments.Environment,'/environments')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

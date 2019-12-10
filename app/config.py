@@ -1,29 +1,15 @@
 import os
 
-class DevConfig(Config):
-    # uncomment the line below to use postgres
-    # SQLALCHEMY_DATABASE_URI = postgres_local_base
+class Config(object):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'flask_boilerplate_main.db')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    CSRF_ENABLED = True
 
-
-class TestConfig(Config):
-    DEBUG = True
-    TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'flask_boilerplate_test.db')
-    PRESERVE_CONTEXT_ON_EXCEPTION = False
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-
-class ProdConfig(Config):
-    DEBUG = False
-    # uncomment the line below to use postgres
-    # SQLALCHEMY_DATABASE_URI = postgres_local_base
-
-
-config_by_name = dict(
-    dev=DevConfig,
-    test=TestConfig,
-    prod=ProdConfig
-)
+class Configdb(Config):
+    PARAMETER = ("DRIVER={SQL Server};"
+                                 "SERVER=EDGOCH-27062019\SQL2016;"
+                                 "DATABASE=VIC_Connector_DEV;"
+                                 # "UID=user;"
+                                 # "PWD=password"
+                                 "Trusted_Connection=yes" # User for Windows authentication
+                                 )
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') # "mssql+pyodbc:///?odbc_connect="
