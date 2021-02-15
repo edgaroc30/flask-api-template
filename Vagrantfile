@@ -13,20 +13,11 @@ Vagrant.configure("2") do |config|
 
   # Port mapping
 
-  config.vm.network "forwarded_port", guest: 80, host: 8080
-  config.vm.network "forwarded_port", guest: 22, host: 22
-  config.vm.network "forwarded_port", guest: 443, host: 443
   config.vm.network "forwarded_port", guest: 3306, host: 3306
   config.vm.network "public_network", type: "dhcp"
 
   # Mariadb for general development
   config.vm.provision "docker" do |d|
-    d.build_image "/vagrant/app",
-      args: "-t flask-api:latest"
-    d.run "flask-api:latest",
-      args: "--detach \
-      --name flask-api \
-      --publish 80:5000"
 
     d.run "mariadb/server:10.3",
       # cmd: "bash -l",

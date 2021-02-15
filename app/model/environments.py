@@ -1,6 +1,11 @@
-from app import db
+import logging
+from flask_restful import Resource
+from controller import environments
 
-class Environment(db.Model):
-    EnvironmentId = db.Column(db.Integer, nullable=False)
-    Name = db.Column(db.Nvarchar(500), index=False)
-    Description = db.Column(db.Nvarchar(None), index=False) # Nvarchar None refers to Nvarchar MAX in SQL Server DB
+class main(Resource):
+    def get(self):
+        
+
+class healthz(Resource):
+    def get(self):
+        return {'Status': 'Some body call for the exterminator?'}
